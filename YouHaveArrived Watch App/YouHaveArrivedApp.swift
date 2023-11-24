@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 @main
 struct YouHaveArrived_Watch_AppApp: App {
+    @WKApplicationDelegateAdaptor var appDelegate: AppDelegate
+
     var body: some Scene {
         WindowGroup {
             ContentView()
