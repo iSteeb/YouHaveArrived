@@ -6,3 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
+import WatchKit
+import UserNotifications
+
+class AppDelegate: NSObject, WKApplicationDelegate {
+    func applicationDidFinishLaunching() {
+        NotificationManager.shared.requestAuthorization()
+    }
+    
+    func applicationDidBecomeActive() {
+        NotificationManager.shared.updatePendingNotificationsBool()
+    }
+}
