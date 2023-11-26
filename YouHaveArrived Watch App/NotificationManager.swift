@@ -39,7 +39,6 @@ import MapKit
     }
     
     func getPendingNotificationsBool() -> Bool {
-        print("checking")
         updatePendingNotificationsBool()
         return isPendingNotifications
     }
