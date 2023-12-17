@@ -6,19 +6,20 @@
 //
 
 import SwiftUI
-import UserNotifications
 import MapKit
 
 struct MapView: View {
     @State var viewModel = ViewModel()
+    @FocusState private var pinSetFocused: Bool
+    @EnvironmentObject var appDelegate: AppDelegate
     
     var body: some View {
-        if (viewModel.notificationManager.isPendingNotifications) {
+        if (viewModel.locationManager.isAlarmSet) {
             VStack {
                 Spacer()
-                Text("Notification Pending")
+                Text("Alarm Pending")
                 Button(action: {
-                    viewModel.unsetNotifications()
+                    viewModel.unsetAlarm()
                 }, label: {
                     Image(systemName: "multiply")
                 })
@@ -26,12 +27,13 @@ struct MapView: View {
             }
         } else {
             ZStack {
+                
                 MapReader{ reader in
                     Map(position: $viewModel.position, interactionModes: viewModel.availableInteractionmModes)
                     {
-                        if let pl = viewModel.pinLocation {
-                            Marker("\(viewModel.fenceRadius)m", coordinate: pl)
-                        }
+//                        if let pl = viewModel.pinLocation {
+//                            Marker("\(Int(viewModel.fenceRadius))m", coordinate: pl)
+//                        }
                         if let pl = viewModel.pinLocation {
                             MapCircle(center: pl, radius: CLLocationDistance(integerLiteral: viewModel.fenceRadius))
                                 .foregroundStyle(.blue.opacity(0.3))
@@ -42,11 +44,12 @@ struct MapView: View {
                         try? await viewModel.locationManager.requestUserAuthorization()
                         try? await viewModel.locationManager.startCurrentLocationUpdates()
                     }
-                    .onMapCameraChange { context in
-                        viewModel.visibleRegion = context.region
-                    }
+//                    .onMapCameraChange { context in
+//                        viewModel.visibleRegion = context.region
+//                    }
                     .onTapGesture(perform: { screenCoord in
                         viewModel.setPin(screenCoord: screenCoord, reader: reader)
+                        pinSetFocused = true
                     })
                     .gesture(
                         DragGesture(minimumDistance: 0.0)
@@ -55,33 +58,78 @@ struct MapView: View {
                             }
                     )
                 }
-                
+
                 if (viewModel.pinLocation != nil) {
                     VStack {
                         Spacer()
+                        
+                        if (!viewModel.isAlarmRegionSet) {
+                            Text("DtD: \(Int(viewModel.fenceRadius))m")
+                                .focusable()
+                                .focused($pinSetFocused)
+                                .onChange(of: pinSetFocused, { oldValue, newValue in
+                                    if(viewModel.pinLocation != nil) {
+                                        pinSetFocused = true
+                                    }
+                                })
+                                .digitalCrownRotation(detent: $viewModel.fenceRadius, from: 250, through: 10000, by: 50, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true) { crownEvent in
+                                    viewModel.updateMapCamera(offset: crownEvent.offset)
+                                }
+                        } else {
+                            Text("EAT: \(viewModel.alarmMinutesFromNow) mins (\(viewModel.formatEstimatedArrivalTime()))")
+                                .focusable()
+                                .focused($pinSetFocused)
+                                .onChange(of: pinSetFocused, { oldValue, newValue in
+                                    if(viewModel.pinLocation != nil) {
+                                        pinSetFocused = true
+                                    }
+                                })
+                                .digitalCrownRotation(detent: $viewModel.alarmMinutesFromNow, from: 30, through: 1440, by: 1, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
+                        }
+                        
                         HStack {
                             Spacer()
-                            Button(action: {
-                                viewModel.unsetPin()
-                            }, label: {
-                                Image(systemName: "multiply")
-                            })
-                            Spacer()
-                            Button(action: {
-                                viewModel.setNotification()
-                            }, label: {
-                                Image(systemName: "checkmark")
-                            })
-                            Spacer()
-                            if(viewModel.isPlaceSaved) {
+                            
+                            if (!viewModel.isAlarmRegionSet) {
                                 Button(action: {
-                                    viewModel.removeFromSavedPlaces()
+                                    viewModel.unsetPin()
+                                }, label: {
+                                    Image(systemName: "multiply")
+                                })
+                            } else {
+                                Button(action: {
+                                    viewModel.unsetAlarmRegion()
+                                }, label: {
+                                    Image(systemName: "multiply")
+                                })
+                            }
+                            
+                            Spacer()
+                            
+                            if (!viewModel.isAlarmRegionSet) {
+                                Button(action: {
+                                    viewModel.setAlarmRegion()
+                                }, label: {
+                                    Image(systemName: "checkmark")
+                                })
+                            } else {
+                                Button(action: {
+                                    viewModel.setAlarm()
+                                }, label: {
+                                    Image(systemName: "checkmark")
+                                })
+                            }
+                            
+                            Spacer()
+                            if(appDelegate.savedPlaces.contains(item: viewModel.pinLocation!) != nil) {
+                                Button(action: {
+                                    viewModel.removeFromSavedPlaces(from: appDelegate.savedPlaces)
                                 }, label: {
                                     Image(systemName: "minus.circle")
                                 })
                             } else {
                                 Button(action: {
-                                    viewModel.savePlaceFromMapView()
+                                    viewModel.savePlaceFromMapView(to: appDelegate.savedPlaces)
                                 }, label: {
                                     Image(systemName: "plus.circle")
                                 })
@@ -89,7 +137,6 @@ struct MapView: View {
                             Spacer()
                         }
                     }
-                    .safeAreaPadding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                 }
             }
             .ignoresSafeArea()

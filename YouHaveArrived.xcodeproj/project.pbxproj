@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		463B97962B12395900302795 /* SavedPlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B97952B12395900302795 /* SavedPlacesView.swift */; };
 		463B97982B1239EB00302795 /* SavedPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B97972B1239EB00302795 /* SavedPlace.swift */; };
-		463B979A2B13826F00302795 /* SavedPlacesView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463B97992B13826F00302795 /* SavedPlacesView-ViewModel.swift */; };
 		46856CED2B10B0990030B4EA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46856CEC2B10B0990030B4EA /* LocationManager.swift */; };
 		46856CEF2B10B0A30030B4EA /* MapView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46856CEE2B10B0A30030B4EA /* MapView-ViewModel.swift */; };
 		46856CF12B10B6170030B4EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46856CF02B10B6170030B4EA /* AppDelegate.swift */; };
-		46856CF32B10BAE10030B4EA /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46856CF22B10BAE10030B4EA /* NotificationManager.swift */; };
 		4699AF892B05239E004177E8 /* YouHaveArrived Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 4699AF882B05239E004177E8 /* YouHaveArrived Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4699AF8E2B05239E004177E8 /* YouHaveArrivedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4699AF8D2B05239E004177E8 /* YouHaveArrivedApp.swift */; };
 		4699AF902B05239E004177E8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4699AF8F2B05239E004177E8 /* MapView.swift */; };
@@ -50,12 +48,10 @@
 		462A6E132B0AC08C00D2C858 /* ROADMAP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ROADMAP.md; sourceTree = "<group>"; };
 		463B97952B12395900302795 /* SavedPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlacesView.swift; sourceTree = "<group>"; };
 		463B97972B1239EB00302795 /* SavedPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlace.swift; sourceTree = "<group>"; };
-		463B97992B13826F00302795 /* SavedPlacesView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedPlacesView-ViewModel.swift"; sourceTree = "<group>"; };
 		466F047A2B0666C200F34085 /* YouHaveArrived-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "YouHaveArrived-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		46856CEC2B10B0990030B4EA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		46856CEE2B10B0A30030B4EA /* MapView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView-ViewModel.swift"; sourceTree = "<group>"; };
 		46856CF02B10B6170030B4EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		46856CF22B10BAE10030B4EA /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		4699AF822B05239E004177E8 /* YouHaveArrived.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouHaveArrived.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4699AF882B05239E004177E8 /* YouHaveArrived Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YouHaveArrived Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4699AF8D2B05239E004177E8 /* YouHaveArrivedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouHaveArrivedApp.swift; sourceTree = "<group>"; };
@@ -102,12 +98,10 @@
 				4699AF8F2B05239E004177E8 /* MapView.swift */,
 				46856CEE2B10B0A30030B4EA /* MapView-ViewModel.swift */,
 				463B97952B12395900302795 /* SavedPlacesView.swift */,
-				463B97992B13826F00302795 /* SavedPlacesView-ViewModel.swift */,
 				4699AF912B05239F004177E8 /* Assets.xcassets */,
 				4699AF932B05239F004177E8 /* Preview Content */,
 				4699AF8D2B05239E004177E8 /* YouHaveArrivedApp.swift */,
 				46856CF02B10B6170030B4EA /* AppDelegate.swift */,
-				46856CF22B10BAE10030B4EA /* NotificationManager.swift */,
 				46856CEC2B10B0990030B4EA /* LocationManager.swift */,
 				463B97972B1239EB00302795 /* SavedPlace.swift */,
 			);
@@ -220,14 +214,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46856CF32B10BAE10030B4EA /* NotificationManager.swift in Sources */,
 				4699AF902B05239E004177E8 /* MapView.swift in Sources */,
 				46856CEF2B10B0A30030B4EA /* MapView-ViewModel.swift in Sources */,
 				4699AF8E2B05239E004177E8 /* YouHaveArrivedApp.swift in Sources */,
 				463B97982B1239EB00302795 /* SavedPlace.swift in Sources */,
 				46856CF12B10B6170030B4EA /* AppDelegate.swift in Sources */,
 				46856CED2B10B0990030B4EA /* LocationManager.swift in Sources */,
-				463B979A2B13826F00302795 /* SavedPlacesView-ViewModel.swift in Sources */,
 				463B97962B12395900302795 /* SavedPlacesView.swift in Sources */,
 				46A5E99B2B12372B008A04D8 /* StartView.swift in Sources */,
 			);

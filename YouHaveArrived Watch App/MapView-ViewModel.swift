@@ -8,45 +8,60 @@
 import Foundation
 import SwiftUI
 import MapKit
-import UserNotifications
 
 extension MapView {
     @Observable class ViewModel {
-        var locationManager: LocationManager = LocationManager()
-        var position: MapCameraPosition
-        var visibleRegion: MKCoordinateRegion?
+        private(set) var isPlaceSaved: Bool
         private(set) var availableInteractionmModes: MapInteractionModes
         private(set) var pinLocation: CLLocationCoordinate2D?
-        private(set) var fenceRadius: Int64
-        var notificationManager = NotificationManager.shared
-        private(set) var isPlaceSaved: Bool = false
-        private(set) var savedPlaces: SavedPlaces = SavedPlaces(userDefaultsKey: "SAVEDPLACESSTORE")
+        private(set) var isAlarmRegionSet: Bool = false
 
-        init(pinLocation: CLLocationCoordinate2D, fenceRadius: Int64) {
-            self.position = .region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pinLocation.latitude, longitude: pinLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)))
-            self.visibleRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pinLocation.latitude, longitude: pinLocation.longitude), span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025))
-            self.availableInteractionmModes = [.zoom]
+        var locationManager: LocationManager = LocationManager()
+        var position: MapCameraPosition = .userLocation(fallback: .automatic)
+        var fenceRadius: Double
+        var alarmMinutesFromNow: Int = 30
+        
+//        TODO: TEMP FIX THIS
+        func formatEstimatedArrivalTime() -> String {
+            let currentDate = Date()
+            let futureDate = Calendar.current.date(byAdding: .minute, value: alarmMinutesFromNow, to: currentDate)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            let timeString = dateFormatter.string(from: futureDate!)
+            if let days = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: currentDate), to: futureDate!).day, days > 0 {
+                return "\(timeString) +\(days)"
+            } else {
+                return timeString
+            }
+        }
+
+        init(pinLocation: CLLocationCoordinate2D, fenceRadius: Double) {
+            self.availableInteractionmModes = []
             self.pinLocation = pinLocation
             self.fenceRadius = fenceRadius
+            self.isPlaceSaved = true
+            updateMapCamera(offset: fenceRadius)
         }
         
         init() {
-            self.position = .userLocation(followsHeading: true, fallback: .automatic)
             self.availableInteractionmModes = [.pan, .zoom]
-            self.fenceRadius = 500
+            self.fenceRadius = 250
+            self.isPlaceSaved = false
+
         }
         
         func setPin(screenCoord: CGPoint, reader: MapProxy) {
             if (pinLocation == nil) {
                 pinLocation = reader.convert(screenCoord, from: .local)
-                availableInteractionmModes = [.zoom]
-                position = .region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: pinLocation!.latitude, longitude: pinLocation!.longitude), span: visibleRegion?.span ?? MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)))
+                availableInteractionmModes = []
+                updateMapCamera(offset: fenceRadius)
             }
         }
         
         func unsetPin() {
             pinLocation = nil
-            fenceRadius = 500
+            fenceRadius = 250
             availableInteractionmModes = [.pan, .zoom]
             position = .userLocation(fallback: .automatic)
         }
@@ -54,32 +69,53 @@ extension MapView {
         func adjustFenceRadius(dragVal: DragGesture.Value) {
             if (pinLocation != nil) {
                 let modifier: CGFloat = log2(CGFloat(fenceRadius)) / 75
-                //                                    TODO: Fix directional change
                 let change = floor(dragVal.translation.width * modifier)
-                if (fenceRadius + Int64(change) >= 50) {
-                    fenceRadius += Int64(change)
+                if (fenceRadius + change >= 50) {
+                    fenceRadius += change
                 }
             }
         }
         
-        func setNotification() {
-            notificationManager.createNotification(c: pinLocation!, r: CLLocationDistance(fenceRadius))
+        func setAlarmRegion() {
+            isAlarmRegionSet = true
         }
         
-        func unsetNotifications() {
-            notificationManager.removeNotifications()
+        func unsetAlarmRegion() {
+            isAlarmRegionSet = false
+            alarmMinutesFromNow = 30
+        }
+        
+        func updateMapCamera(offset: Double) {
+            fenceRadius = offset
+            position = .region(MKCoordinateRegion(center: pinLocation!, latitudinalMeters: fenceRadius * 3, longitudinalMeters: fenceRadius * 3))
+        }
+        
+        func setAlarm() {
+            locationManager.startExtendedRuntimeSession(minutesFromNow: alarmMinutesFromNow)
+            locationManager.regionLocation = CLCircularRegion(center: pinLocation!, radius: CLLocationDistance(fenceRadius), identifier: "Fence")
+        }
+        
+        func unsetAlarm() {
             unsetPin()
+            locationManager.endExtendedRuntimeSession()
         }
         
-        func savePlaceFromMapView() {
-            let placeToSave = SavedPlace(coordinate: pinLocation!, fenceRadius: fenceRadius)
-            savedPlaces.addItem(item: placeToSave)
-            isPlaceSaved = true
+        func savePlaceFromMapView(to: SavedPlaces) {
+            var name: String = "Lat: \(round(pinLocation!.latitude * 1000) / 1000.0), Lon:\(round(pinLocation!.longitude * 1000) / 1000.0)"
+            let geocoder = CLGeocoder()
+            geocoder.reverseGeocodeLocation(CLLocation(latitude: pinLocation!.latitude, longitude: pinLocation!.longitude)) {placemarks, error in
+                if let placeMark = placemarks?.first {
+                    name = placeMark.name!
+                    to.addItem(coordinate: self.pinLocation!, fenceRadius: self.fenceRadius, name: name)
+                    self.isPlaceSaved = (to.contains(item: self.pinLocation!) != nil)
+                    print(name)
+                }
+            }
         }
         
-        func removeFromSavedPlaces() {
-//            TODO: check if in, then remove using removeItem(location: CLLocationCoordinate2D)
-            isPlaceSaved = false
+        func removeFromSavedPlaces(from: SavedPlaces) {
+            from.removeItem(item: pinLocation!)
+            isPlaceSaved = (from.contains(item: pinLocation!) != nil)
         }
     }
 }

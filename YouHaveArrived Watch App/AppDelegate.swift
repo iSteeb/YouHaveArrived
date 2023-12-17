@@ -8,14 +8,27 @@
 import Foundation
 import SwiftUI
 import WatchKit
-import UserNotifications
 
-class AppDelegate: NSObject, WKApplicationDelegate {
+class AppDelegate: NSObject, WKApplicationDelegate, ObservableObject {
+    var savedPlaces: SavedPlaces = SavedPlaces(userDefaultsKey: "SAVEDPLACESSTORE")
+    
     func applicationDidFinishLaunching() {
-        NotificationManager.shared.requestAuthorization()
+        print("application did finish launching")
     }
     
     func applicationDidBecomeActive() {
-        NotificationManager.shared.updatePendingNotificationsBool()
+        print("application did become active")
+    }
+    
+    func applicationWillResignActive() {
+        print("application will resign active")
+    }
+    
+    func applicationDidEnterBackground() {
+        print("application did enter background")
+    }
+    
+    func applicationWillEnterForeground() {
+        print("application will enter foreground")
     }
 }

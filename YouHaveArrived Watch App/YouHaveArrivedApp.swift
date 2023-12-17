@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UserNotifications
 
 @main
 struct YouHaveArrived_Watch_AppApp: App {

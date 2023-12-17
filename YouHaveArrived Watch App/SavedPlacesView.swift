@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct SavedPlacesView: View {
-    @State var viewModel = ViewModel()
-
+    @EnvironmentObject var appDelegate: AppDelegate
+    
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.savedPlaces.savedPlaces) { place in
+                ForEach(appDelegate.savedPlaces.items) { place in
                     NavigationLink(place.name) {
                         MapView(viewModel: MapView.ViewModel(pinLocation: CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude), fenceRadius: place.fenceRadius))
                     }
                 }
                 .onDelete(perform: { indexSet in
-                    viewModel.savedPlaces.removeItem(offsets: indexSet)
+                    appDelegate.savedPlaces.removeItem(offsets: indexSet)
                 })
             }
         }
