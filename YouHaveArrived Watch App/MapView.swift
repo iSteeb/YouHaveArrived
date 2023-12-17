@@ -74,7 +74,7 @@ struct MapView: View {
                                         pinSetFocused = true
                                     }
                                 })
-                                .digitalCrownRotation(detent: $viewModel.fenceRadius, from: 250, through: 10000, by: 50, sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true) { crownEvent in
+                                .digitalCrownRotation(detent: $viewModel.fenceRadius, from: 250, through: 10000, by: 50, sensitivity: .high, isContinuous: false, isHapticFeedbackEnabled: true) { crownEvent in
                                     viewModel.updateMapCamera(offset: crownEvent.offset)
                                 }
                         } else {

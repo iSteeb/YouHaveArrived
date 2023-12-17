@@ -45,7 +45,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		462A6E132B0AC08C00D2C858 /* ROADMAP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ROADMAP.md; sourceTree = "<group>"; };
 		463B97952B12395900302795 /* SavedPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlacesView.swift; sourceTree = "<group>"; };
 		463B97972B1239EB00302795 /* SavedPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlace.swift; sourceTree = "<group>"; };
 		466F047A2B0666C200F34085 /* YouHaveArrived-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "YouHaveArrived-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -75,7 +74,6 @@
 		4699AF7B2B05239E004177E8 = {
 			isa = PBXGroup;
 			children = (
-				462A6E132B0AC08C00D2C858 /* ROADMAP.md */,
 				4699AF8C2B05239E004177E8 /* YouHaveArrived Watch App */,
 				4699AF832B05239E004177E8 /* Products */,
 			);

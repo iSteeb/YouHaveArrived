@@ -16,9 +16,10 @@ import WatchKit
     private var currentLocation: CLLocation?
     private var extendedRuntimeSession: WKExtendedRuntimeSession?
     private var hapticTimer: Timer?
+    private var isAlarmFiring: Bool = false
     
     private(set) var isAlarmSet: Bool = false
-
+    
     var fencedRegion: CLCircularRegion?
     
     func requestUserAuthorization() async throws {
@@ -36,25 +37,28 @@ import WatchKit
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last?.coordinate else { return }
-        // Handle the updated location as needed
         //        print("Updated location: \(location)")
-        if((fencedRegion?.contains(CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))) ?? false) {
+        if (!isAlarmFiring && fencedRegion?.contains(CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)) ?? false) {
             if (extendedRuntimeSession?.state == .running) {
+                print("triggering extended runtime session alarm")
+                isAlarmFiring = true
                 extendedRuntimeSession?.notifyUser(hapticType: WKHapticType.retry, repeatHandler: { haptic in
                     return 1
                 })
-            } else if (extendedRuntimeSession?.state == .scheduled){
+            } else if (extendedRuntimeSession?.state == .scheduled) {
+                isAlarmFiring = true
                 hapticTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
                     guard let strongSelf = self else { return }
                     if strongSelf.isAlarmSet {
+                        print("triggering haptic timer alarm")
                         WKInterfaceDevice.current().play(.notification)
                     } else {
-                        // If the alarm should no longer be active, invalidate the timer
                         strongSelf.hapticTimer?.invalidate()
                         strongSelf.hapticTimer = nil
                     }
                 }
             }
+            
         }
     }
     
@@ -66,7 +70,7 @@ import WatchKit
         extendedRuntimeSession = WKExtendedRuntimeSession()
         extendedRuntimeSession?.delegate = self
         
-        extendedRuntimeSession?.start(at: Date(timeIntervalSinceNow: TimeInterval(minutesFromNow)))
+        extendedRuntimeSession?.start(at: Date(timeIntervalSinceNow: TimeInterval(minutesFromNow - 30)))
         print("extended runtime session started now")
         isAlarmSet = true
     }
@@ -75,13 +79,10 @@ import WatchKit
         extendedRuntimeSession?.invalidate()
     }
     
-    func getExtendedRuntimeSessionStatus() -> WKExtendedRuntimeSessionState? {
-        return extendedRuntimeSession?.state
-    }
-    
     func extendedRuntimeSession(_ extendedRuntimeSession: WKExtendedRuntimeSession, didInvalidateWith reason: WKExtendedRuntimeSessionInvalidationReason, error: Error?) {
         print("extended runtime session did invalidate with \(reason)")
         isAlarmSet = false
+        isAlarmFiring = false
     }
     
     func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
@@ -91,7 +92,7 @@ import WatchKit
     func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
         print("extended runtime session will expire")
         self.extendedRuntimeSession?.notifyUser(hapticType: WKHapticType.retry, repeatHandler: { haptic in
-            return 1
+            return 2
         })
     }
 }
