@@ -9,8 +9,9 @@ import Foundation
 import MapKit
 
 @Observable class SavedPlaces {
-    var items: [SavedPlace] = []
     private var KEY: String
+
+    var items: [SavedPlace] = []
     
     init(userDefaultsKey: String) {
         self.KEY = userDefaultsKey

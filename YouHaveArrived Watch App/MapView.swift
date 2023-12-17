@@ -9,9 +9,11 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @State var viewModel = ViewModel()
-    @FocusState private var pinSetFocused: Bool
     @EnvironmentObject var appDelegate: AppDelegate
+    
+    @State var viewModel = ViewModel()
+    
+    @FocusState private var pinSetFocused: Bool
     
     var body: some View {
         if (viewModel.locationManager.isAlarmSet) {

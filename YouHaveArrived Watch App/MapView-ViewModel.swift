@@ -15,26 +15,12 @@ extension MapView {
         private(set) var availableInteractionmModes: MapInteractionModes
         private(set) var pinLocation: CLLocationCoordinate2D?
         private(set) var isAlarmRegionSet: Bool = false
-
+        private(set) var isAlarmSet: Bool = false
+        
         var locationManager: LocationManager = LocationManager()
         var position: MapCameraPosition = .userLocation(fallback: .automatic)
         var fenceRadius: Double
         var alarmMinutesFromNow: Int = 30
-        
-//        TODO: TEMP FIX THIS
-        func formatEstimatedArrivalTime() -> String {
-            let currentDate = Date()
-            let futureDate = Calendar.current.date(byAdding: .minute, value: alarmMinutesFromNow, to: currentDate)
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH:mm"
-            let timeString = dateFormatter.string(from: futureDate!)
-            if let days = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: currentDate), to: futureDate!).day, days > 0 {
-                return "\(timeString) +\(days)"
-            } else {
-                return timeString
-            }
-        }
 
         init(pinLocation: CLLocationCoordinate2D, fenceRadius: Double) {
             self.availableInteractionmModes = []
@@ -48,7 +34,11 @@ extension MapView {
             self.availableInteractionmModes = [.pan, .zoom]
             self.fenceRadius = 250
             self.isPlaceSaved = false
-
+        }
+        
+        func updateMapCamera(offset: Double) {
+            fenceRadius = offset
+            position = .region(MKCoordinateRegion(center: pinLocation!, latitudinalMeters: fenceRadius * 3, longitudinalMeters: fenceRadius * 3))
         }
         
         func setPin(screenCoord: CGPoint, reader: MapProxy) {
@@ -85,18 +75,28 @@ extension MapView {
             alarmMinutesFromNow = 30
         }
         
-        func updateMapCamera(offset: Double) {
-            fenceRadius = offset
-            position = .region(MKCoordinateRegion(center: pinLocation!, latitudinalMeters: fenceRadius * 3, longitudinalMeters: fenceRadius * 3))
+        func formatEstimatedArrivalTime() -> String {
+            let currentDate = Date()
+            let futureDate = Calendar.current.date(byAdding: .minute, value: alarmMinutesFromNow, to: currentDate)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            let timeString = dateFormatter.string(from: futureDate!)
+            if let days = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: currentDate), to: futureDate!).day, days > 0 {
+                return "\(timeString) +\(days)"
+            } else {
+                return timeString
+            }
         }
         
         func setAlarm() {
             locationManager.startExtendedRuntimeSession(minutesFromNow: alarmMinutesFromNow)
-            locationManager.regionLocation = CLCircularRegion(center: pinLocation!, radius: CLLocationDistance(fenceRadius), identifier: "Fence")
+            locationManager.fencedRegion = CLCircularRegion(center: pinLocation!, radius: CLLocationDistance(fenceRadius), identifier: "Fence")
         }
         
         func unsetAlarm() {
             unsetPin()
+            unsetAlarmRegion()
             locationManager.endExtendedRuntimeSession()
         }
         
