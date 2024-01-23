@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		460DDB3D2B5AB8E600710220 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460DDB3C2B5AB8E600710220 /* ContentView.swift */; };
+		460DDB3F2B5AB8F600710220 /* ContentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460DDB3E2B5AB8F600710220 /* ContentViewViewModel.swift */; };
+		4612D2EF2B5A707200291B95 /* ContentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4612D2EE2B5A707200291B95 /* ContentViewViewModel.swift */; };
 		46AC29C62B55A3C50087C7E4 /* YouHaveArrivedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC29C52B55A3C50087C7E4 /* YouHaveArrivedApp.swift */; };
 		46AC29C82B55A3C50087C7E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC29C72B55A3C50087C7E4 /* ContentView.swift */; };
 		46AC29CA2B55A3C60087C7E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46AC29C92B55A3C60087C7E4 /* Assets.xcassets */; };
 		46AC29CD2B55A3C60087C7E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46AC29CC2B55A3C60087C7E4 /* Preview Assets.xcassets */; };
 		46AC29D32B55A3C60087C7E4 /* YouHaveArrived Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 46AC29D22B55A3C60087C7E4 /* YouHaveArrived Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		46AC29D82B55A3C60087C7E4 /* YouHaveArrivedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC29D72B55A3C60087C7E4 /* YouHaveArrivedApp.swift */; };
-		46AC29DA2B55A3C60087C7E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC29D92B55A3C60087C7E4 /* ContentView.swift */; };
 		46AC29DC2B55A3C70087C7E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46AC29DB2B55A3C70087C7E4 /* Assets.xcassets */; };
 		46AC29DF2B55A3C70087C7E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46AC29DE2B55A3C70087C7E4 /* Preview Assets.xcassets */; };
+		46AC29F52B55A4130087C7E4 /* YouHaveArrivedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC29ED2B55A4130087C7E4 /* YouHaveArrivedApp.swift */; };
+		46AC29F82B55A4130087C7E4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AC29F02B55A4130087C7E4 /* LocationManager.swift */; };
+		46C735E12B569AD500FD2039 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C735E02B569AD500FD2039 /* ShareViewController.swift */; };
+		46C735E82B569AD500FD2039 /* Share from Apple Maps.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 46C735DE2B569AD500FD2039 /* Share from Apple Maps.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		46C735EE2B569B1600FD2039 /* ShareExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C735ED2B569B1600FD2039 /* ShareExtensionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +31,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 46AC29D12B55A3C60087C7E4;
 			remoteInfo = "YouHaveArrived Watch App";
+		};
+		46C735E62B569AD500FD2039 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46AC29BA2B55A3C40087C7E4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46C735DD2B569AD500FD2039;
+			remoteInfo = "Share from Apple Maps";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -40,19 +53,39 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		46C735E92B569AD500FD2039 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				46C735E82B569AD500FD2039 /* Share from Apple Maps.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		460DDB3C2B5AB8E600710220 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		460DDB3E2B5AB8F600710220 /* ContentViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewViewModel.swift; sourceTree = "<group>"; };
+		4612D2EE2B5A707200291B95 /* ContentViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewViewModel.swift; sourceTree = "<group>"; };
 		46AC29C22B55A3C50087C7E4 /* YouHaveArrived.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouHaveArrived.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46AC29C52B55A3C50087C7E4 /* YouHaveArrivedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouHaveArrivedApp.swift; sourceTree = "<group>"; };
 		46AC29C72B55A3C50087C7E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46AC29C92B55A3C60087C7E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46AC29CC2B55A3C60087C7E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		46AC29D22B55A3C60087C7E4 /* YouHaveArrived Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YouHaveArrived Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		46AC29D72B55A3C60087C7E4 /* YouHaveArrivedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouHaveArrivedApp.swift; sourceTree = "<group>"; };
-		46AC29D92B55A3C60087C7E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46AC29DB2B55A3C70087C7E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46AC29DE2B55A3C70087C7E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		46AC29ED2B55A4130087C7E4 /* YouHaveArrivedApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouHaveArrivedApp.swift; sourceTree = "<group>"; };
+		46AC29F02B55A4130087C7E4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		46AC29F92B55AAED0087C7E4 /* YouHaveArrived-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "YouHaveArrived-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		46AC29FA2B55AAF10087C7E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		46C735DE2B569AD500FD2039 /* Share from Apple Maps.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Share from Apple Maps.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		46C735E02B569AD500FD2039 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		46C735E52B569AD500FD2039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46C735ED2B569B1600FD2039 /* ShareExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExtensionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,14 +103,61 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		46C735DB2B569AD500FD2039 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		460DDB392B5AB89400710220 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				460DDB3E2B5AB8F600710220 /* ContentViewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		460DDB3A2B5AB8A200710220 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				460DDB3C2B5AB8E600710220 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		460DDB3B2B5AB8A800710220 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4612D2EA2B5A6FDF00291B95 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4612D2EE2B5A707200291B95 /* ContentViewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4612D2EB2B5A6FEE00291B95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				46AC29C72B55A3C50087C7E4 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		46AC29B92B55A3C40087C7E4 = {
 			isa = PBXGroup;
 			children = (
 				46AC29C42B55A3C50087C7E4 /* YouHaveArrived */,
 				46AC29D62B55A3C60087C7E4 /* YouHaveArrived Watch App */,
+				46C735DF2B569AD500FD2039 /* Share from Apple Maps */,
 				46AC29C32B55A3C50087C7E4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +167,7 @@
 			children = (
 				46AC29C22B55A3C50087C7E4 /* YouHaveArrived.app */,
 				46AC29D22B55A3C60087C7E4 /* YouHaveArrived Watch App.app */,
+				46C735DE2B569AD500FD2039 /* Share from Apple Maps.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,7 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				46AC29C52B55A3C50087C7E4 /* YouHaveArrivedApp.swift */,
-				46AC29C72B55A3C50087C7E4 /* ContentView.swift */,
+				4612D2EB2B5A6FEE00291B95 /* View */,
+				4612D2EA2B5A6FDF00291B95 /* ViewModel */,
+				46AC29FA2B55AAF10087C7E4 /* Info.plist */,
 				46AC29C92B55A3C60087C7E4 /* Assets.xcassets */,
 				46AC29CB2B55A3C60087C7E4 /* Preview Content */,
 			);
@@ -113,8 +196,12 @@
 		46AC29D62B55A3C60087C7E4 /* YouHaveArrived Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				46AC29D72B55A3C60087C7E4 /* YouHaveArrivedApp.swift */,
-				46AC29D92B55A3C60087C7E4 /* ContentView.swift */,
+				46AC29ED2B55A4130087C7E4 /* YouHaveArrivedApp.swift */,
+				46AC29F02B55A4130087C7E4 /* LocationManager.swift */,
+				460DDB3B2B5AB8A800710220 /* Model */,
+				460DDB3A2B5AB8A200710220 /* View */,
+				460DDB392B5AB89400710220 /* ViewModel */,
+				46AC29F92B55AAED0087C7E4 /* YouHaveArrived-Watch-App-Info.plist */,
 				46AC29DB2B55A3C70087C7E4 /* Assets.xcassets */,
 				46AC29DD2B55A3C70087C7E4 /* Preview Content */,
 			);
@@ -129,6 +216,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		46C735DF2B569AD500FD2039 /* Share from Apple Maps */ = {
+			isa = PBXGroup;
+			children = (
+				46C735E02B569AD500FD2039 /* ShareViewController.swift */,
+				46C735E52B569AD500FD2039 /* Info.plist */,
+				46C735ED2B569B1600FD2039 /* ShareExtensionView.swift */,
+			);
+			path = "Share from Apple Maps";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,11 +237,13 @@
 				46AC29BF2B55A3C50087C7E4 /* Frameworks */,
 				46AC29C02B55A3C50087C7E4 /* Resources */,
 				46AC29E52B55A3C70087C7E4 /* Embed Watch Content */,
+				46C735E92B569AD500FD2039 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				46AC29D52B55A3C60087C7E4 /* PBXTargetDependency */,
+				46C735E72B569AD500FD2039 /* PBXTargetDependency */,
 			);
 			name = YouHaveArrived;
 			productName = YouHaveArrived;
@@ -168,6 +267,23 @@
 			productReference = 46AC29D22B55A3C60087C7E4 /* YouHaveArrived Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
+		46C735DD2B569AD500FD2039 /* Share from Apple Maps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46C735EC2B569AD500FD2039 /* Build configuration list for PBXNativeTarget "Share from Apple Maps" */;
+			buildPhases = (
+				46C735DA2B569AD500FD2039 /* Sources */,
+				46C735DB2B569AD500FD2039 /* Frameworks */,
+				46C735DC2B569AD500FD2039 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Share from Apple Maps";
+			productName = "Share from Apple Maps";
+			productReference = 46C735DE2B569AD500FD2039 /* Share from Apple Maps.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -182,6 +298,10 @@
 						CreatedOnToolsVersion = 15.2;
 					};
 					46AC29D12B55A3C60087C7E4 = {
+						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
+					};
+					46C735DD2B569AD500FD2039 = {
 						CreatedOnToolsVersion = 15.2;
 					};
 				};
@@ -201,6 +321,7 @@
 			targets = (
 				46AC29C12B55A3C50087C7E4 /* YouHaveArrived */,
 				46AC29D12B55A3C60087C7E4 /* YouHaveArrived Watch App */,
+				46C735DD2B569AD500FD2039 /* Share from Apple Maps */,
 			);
 		};
 /* End PBXProject section */
@@ -224,6 +345,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		46C735DC2B569AD500FD2039 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -233,6 +361,7 @@
 			files = (
 				46AC29C82B55A3C50087C7E4 /* ContentView.swift in Sources */,
 				46AC29C62B55A3C50087C7E4 /* YouHaveArrivedApp.swift in Sources */,
+				4612D2EF2B5A707200291B95 /* ContentViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +369,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46AC29DA2B55A3C60087C7E4 /* ContentView.swift in Sources */,
-				46AC29D82B55A3C60087C7E4 /* YouHaveArrivedApp.swift in Sources */,
+				46AC29F82B55A4130087C7E4 /* LocationManager.swift in Sources */,
+				460DDB3D2B5AB8E600710220 /* ContentView.swift in Sources */,
+				46AC29F52B55A4130087C7E4 /* YouHaveArrivedApp.swift in Sources */,
+				460DDB3F2B5AB8F600710220 /* ContentViewViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46C735DA2B569AD500FD2039 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46C735EE2B569B1600FD2039 /* ShareExtensionView.swift in Sources */,
+				46C735E12B569AD500FD2039 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +392,11 @@
 			isa = PBXTargetDependency;
 			target = 46AC29D12B55A3C60087C7E4 /* YouHaveArrived Watch App */;
 			targetProxy = 46AC29D42B55A3C60087C7E4 /* PBXContainerItemProxy */;
+		};
+		46C735E72B569AD500FD2039 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46C735DD2B569AD500FD2039 /* Share from Apple Maps */;
+			targetProxy = 46C735E62B569AD500FD2039 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -308,12 +453,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
@@ -363,10 +510,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
@@ -375,28 +524,32 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"YouHaveArrived Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 7997G399U7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "YouHaveArrived-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = YouHaveArrived;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = duz.ie.YouHaveArrived;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = duz.ie.YouHaveArrived.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
@@ -405,20 +558,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"YouHaveArrived Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = 7997G399U7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "YouHaveArrived-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = YouHaveArrived;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = duz.ie.YouHaveArrived;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = duz.ie.YouHaveArrived.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -427,7 +583,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
@@ -443,13 +599,15 @@
 				DEVELOPMENT_TEAM = 7997G399U7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YouHaveArrived/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = YouHaveArrived;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,9 +616,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = duz.ie.YouHaveArrived;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -476,13 +638,15 @@
 				DEVELOPMENT_TEAM = 7997G399U7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YouHaveArrived/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = YouHaveArrived;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -491,9 +655,76 @@
 				PRODUCT_BUNDLE_IDENTIFIER = duz.ie.YouHaveArrived;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		46C735EA2B569AD500FD2039 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7997G399U7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Share from Apple Maps/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Share from Apple Maps";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "duz.ie.YouHaveArrived.Share-from-Apple-Maps";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		46C735EB2B569AD500FD2039 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7997G399U7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Share from Apple Maps/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Share from Apple Maps";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "duz.ie.YouHaveArrived.Share-from-Apple-Maps";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -524,6 +755,15 @@
 			buildConfigurations = (
 				46AC29E72B55A3C70087C7E4 /* Debug */,
 				46AC29E82B55A3C70087C7E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46C735EC2B569AD500FD2039 /* Build configuration list for PBXNativeTarget "Share from Apple Maps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46C735EA2B569AD500FD2039 /* Debug */,
+				46C735EB2B569AD500FD2039 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

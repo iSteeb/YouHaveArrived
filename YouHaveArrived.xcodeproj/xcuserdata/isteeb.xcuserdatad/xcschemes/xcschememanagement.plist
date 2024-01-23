@@ -4,15 +4,38 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>YouHaveArrived Watch App.xcscheme_^#shared#^_</key>
+		<key>Share from Apple Maps.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>YouHaveArrived.xcscheme_^#shared#^_</key>
+		<key>YouHaveArrived Watch App.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>YouHaveArrived.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>46AC29C12B55A3C50087C7E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>46AC29D12B55A3C60087C7E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>46C735DD2B569AD500FD2039</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
